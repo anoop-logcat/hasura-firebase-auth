@@ -3,6 +3,7 @@
   "projects": {
     "codegen-sdk": "libs/codegen-sdk",
     "frontend": "apps/frontend",
-    "frontend-e2e": "apps/frontend-e2e"
+    "frontend-e2e": "apps/frontend-e2e",
+    "shared-backend": "libs/shared-backend"
   }
 }
