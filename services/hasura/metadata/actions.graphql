@@ -1,0 +1,18 @@
+type Mutation {
+  register(
+    object: RegisterInput!
+  ): RegisterOutput
+}
+
+input RegisterInput {
+  first_name: String!
+  last_name: String!
+  avatar_url: String
+  email: String!
+  password: String!
+}
+
+type RegisterOutput {
+  userId: String!
+}
+

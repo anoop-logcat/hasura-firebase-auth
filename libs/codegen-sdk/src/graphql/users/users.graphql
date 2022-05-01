@@ -1,24 +1,25 @@
-# query getUserById($userId: uuid!) {
-#   user: users_by_pk(id: $userId) {
-#     id
-#     first_name
-#     last_name
-#     display_name
-#     account {
-#       default_role
-#       active
-#       email
-#     }
-#   }
-# }
+query getUserById($id: uuid!) {
+  user_by_pk(id: $id) {
+    avatar_url
+    created_at
+    display_name
+    email
+    first_name
+    id
+    last_name
+    updated_at
+  }
+}
 
-# mutation updateUserDefaultRole($userId: uuid!, $defaultRole: String!) {
-#   update_auth_accounts(
-#     where: { user_id: { _eq: $userId } }
-#     _set: { default_role: $defaultRole }
-#   ) {
-#     returning {
-#       id
-#     }
-#   }
-# }
+mutation addUser($object: user_insert_input!) {
+  insert_user_one(object: $object) {
+    id
+    created_at
+    updated_at
+    first_name
+    last_name
+    display_name
+    email
+    avatar_url
+  }
+}

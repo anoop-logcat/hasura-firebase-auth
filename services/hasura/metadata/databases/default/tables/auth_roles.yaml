@@ -1,0 +1,12 @@
+table:
+  schema: auth
+  name: roles
+is_enum: true
+array_relationships:
+  - name: account_roles
+    using:
+      foreign_key_constraint_on:
+        column: role
+        table:
+          schema: auth
+          name: account_roles

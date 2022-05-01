@@ -1,52 +1,11 @@
-# mutation updateAccountByUserId(
-#   $userId: uuid!
-#   $object: auth_accounts_set_input!
-# ) {
-#   update_auth_accounts(where: { user_id: { _eq: $userId } }, _set: $object) {
-#     returning {
-#       active
-#       email
-#     }
-#   }
-# }
-# query getAccountByUserId($user_id: uuid!) {
-#   auth_accounts(where: { user_id: { _eq: $user_id } }) {
-#     email
-#     id
-#     created_at
-#     updated_at
-#     user_id
-#     active
-#     email
-#     new_email
-#     password_hash
-#     default_role
-#     is_anonymous
-#     custom_register_data
-#     otp_secret
-#     mfa_enabled
-#     ticket
-#     ticket_expires_at
-#   }
-# }
-
-# query getAccountByTicket($ticket: uuid!) {
-#   auth_accounts(where: { ticket: { _eq: $ticket } }) {
-#     email
-#     id
-#     created_at
-#     updated_at
-#     user_id
-#     active
-#     email
-#     new_email
-#     password_hash
-#     default_role
-#     is_anonymous
-#     custom_register_data
-#     otp_secret
-#     mfa_enabled
-#     ticket
-#     ticket_expires_at
-#   }
-# }
+mutation addAccountRoles($objects: [auth_account_roles_insert_input!]!) {
+  insert_auth_account_roles(objects: $objects) {
+    returning {
+      id
+      created_at
+      user_id
+      role
+      is_default
+    }
+  }
+}
