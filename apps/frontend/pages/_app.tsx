@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { SessionProvider } from "next-auth/react"
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -9,7 +10,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to frontend!</title>
       </Head>
       <main className="app">
-        <Component {...pageProps} />
+        <SessionProvider session={pageProps.session} refetchInterval={0}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </main>
     </>
   );

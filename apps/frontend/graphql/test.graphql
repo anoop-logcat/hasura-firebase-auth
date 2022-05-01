@@ -1,0 +1,6 @@
+query getTestByFrontend {
+  test {
+    id
+    text
+  }
+}

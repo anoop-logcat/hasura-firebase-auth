@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "codegen-sdk": "libs/codegen-sdk",
     "frontend": "apps/frontend",
     "frontend-e2e": "apps/frontend-e2e"
   }

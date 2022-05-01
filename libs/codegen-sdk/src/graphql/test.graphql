@@ -1,0 +1,6 @@
+query getTestByBackend {
+  test {
+    id
+    text
+  }
+}

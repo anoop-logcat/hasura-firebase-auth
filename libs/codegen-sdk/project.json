@@ -1,0 +1,23 @@
+{
+  "root": "libs/codegen-sdk",
+  "sourceRoot": "libs/codegen-sdk/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/codegen-sdk/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/codegen-sdk"],
+      "options": {
+        "jestConfig": "libs/codegen-sdk/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

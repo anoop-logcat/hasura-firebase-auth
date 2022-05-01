@@ -1,0 +1,34 @@
+overwrite: true
+schema:
+  - 'http://localhost:8080/v1/graphql':
+      headers:
+        'x-hasura-admin-secret': 'LZrEbLC2wdqIBQjqgOqNwzuUdEWVmzdmtiZBV5LDUTLcXbCw0TR3JZ7'
+
+generates:
+  ./libs/codegen-sdk/src/generated/sdk.ts:
+    documents: './libs/codegen-sdk/src/graphql/**/*.graphql'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      documentMode: documentNode
+
+  ./libs/codegen-sdk/src/generated/base-types.ts:
+    documents:
+      - './apps/frontend/**/**/*.graphql'
+    plugins:
+      - typescript
+
+  ./apps/frontend/src:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.ts
+      baseTypesPath: '~@next-auth/codegen-sdk/base-types'
+    documents: './apps/frontend/**/**/*.graphql'
+    plugins:
+      - typescript-operations
+      - typescript-urql
+    config:
+      documentMode: documentNode
+      withHooks: true
