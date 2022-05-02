@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { SessionProvider } from "next-auth/react"
-import './styles.css';
+import '../styles/tailwind.css';
+
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,9 +10,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to frontend!</title>
       </Head>
       <main className="app">
-        <SessionProvider session={pageProps.session} refetchInterval={0}>
-          <Component {...pageProps} />
-        </SessionProvider>
+      <Component {...pageProps} />
       </main>
     </>
   );
