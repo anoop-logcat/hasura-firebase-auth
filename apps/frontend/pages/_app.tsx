@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { AuthUserProvider } from '../providers/firebase/auth-user-provider';
 import '../styles/tailwind.css';
 
 
@@ -10,7 +11,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to frontend!</title>
       </Head>
       <main className="app">
-      <Component {...pageProps} />
+        <AuthUserProvider><Component {...pageProps} /></AuthUserProvider>
       </main>
     </>
   );
