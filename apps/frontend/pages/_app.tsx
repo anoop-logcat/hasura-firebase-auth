@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { AuthProvider } from '../providers/AuthProvider';
 import '../styles/tailwind.css';
-
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,7 +10,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to frontend!</title>
       </Head>
       <main className="app">
-      <Component {...pageProps} />
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
       </main>
     </>
   );
